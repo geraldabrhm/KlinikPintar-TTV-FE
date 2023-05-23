@@ -1,5 +1,4 @@
 <script lang="ts">
-    import UserAPI from '../api/UserAPI';
     export default {
         name: 'UserCard',
         props: {

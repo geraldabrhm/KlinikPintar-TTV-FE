@@ -41,7 +41,7 @@
             handleFormNewUser() {
                 const result = UserAPI.addUser(this.formNewUser);
                 result.then((res) => {
-                    // console.info(res); // ! Debug
+                    console.info(res); // ! Debug
                     this.getData();
                     this.isShowingForm = false;
                 })

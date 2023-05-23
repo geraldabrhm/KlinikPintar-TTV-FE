@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from './Layout/Header.vue'
+  import Header from './layout/Header.vue'
 
   export default {
     name: 'App',
