@@ -6,9 +6,9 @@ import router from './router';
 // * Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp);
+library.add(faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp, faSearch);
 
 createApp(App)
     .use(router)

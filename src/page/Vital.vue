@@ -23,14 +23,23 @@
                     respiratoryRate: null,
                     temperature: null,
                 },
+                searchPromptData: null,
             }
         },
         computed: {
             vitalEmpty() {
-                return this.vitals === null || this.vitals.length === 0;
+                return this.filteredVitals === null || this.filteredVitals.length === 0;
             },
             buttonText() {
                 return this.isShowingForm ? 'Batal Tambah' : 'Tambahkan Data TTV';
+            },
+            filteredVitals() {
+                if(this.searchPromptData === null || this.searchPromptData === "") {
+                    return this.vitals;
+                }
+                return this.vitals.filter((vital) => {
+                    return vital.name.toLowerCase().includes(this.searchPromptData);
+                })
             }
         },
         methods: {
@@ -65,6 +74,10 @@
                 }).finally(() => {
                     this.isLoading = false;
                 })
+            },
+            handleSearch(event: any) {
+                console.info("Here");
+                console.log("Search: " + event.target.value);
             }
         },
         mounted() {
@@ -76,7 +89,7 @@
 
 <template>
     <main>
-        <div class="flex flex-row w-full justify-between px-5 items-center">
+        <div class="flex flex-row w-full justify-between px-5 my-2 items-center">
             <h3>Daftar Tanda-tanda Vital</h3>
             <div class="flex flex-row justify-end items-center">
                 <button 
@@ -126,6 +139,11 @@
             </form>
         </div>
 
+        <div v-if="!isShowingForm" class="p-1 my-2 w-1/3 bg-white flex flex-row justify-start rounded-md">
+            <font-awesome-icon icon="fa-solid fa-search" size="xl" style="color: #1e293b;" class="mr-1 p-1"/>
+            <input class="input-box w-full p-1" placeholder="Masukan nama pengguna atau pasien" type="text" v-model="searchPromptData" @change="handleSearch($event)"/>
+        </div>
+        
         <div v-if="!vitalEmpty && !isLoading && !isShowingForm" class="flex flex-col text-left w-full px-5">
             <div class="flex flex-row justify-between border-b border-[#b3b3b3]">
                 <p class="table-header basis-1/12">#</p>
@@ -138,7 +156,7 @@
                 <p class="table-header basis-1/12">Temperature <span class="italic">(celcius)</span></p>  
                 <p class="table-header basis-1/12">Note</p>
             </div>
-            <VitalCard v-for="(vital, index) in vitals" :key="vital.id" :num="index + 1" :vital="vital"/>  
+            <VitalCard v-for="(vital, index) in filteredVitals" :key="vital.id" :num="index + 1" :vital="vital"/>  
         </div>
         <div v-if="vitalEmpty && !isLoading && !isShowingForm" class="flex flex-row justify-center">
             <p>There is no vital sign data</p>

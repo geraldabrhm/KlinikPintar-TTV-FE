@@ -70,7 +70,7 @@
 
 <template>
     <main>
-        <div class="flex flex-row w-full justify-between px-5 items-center">
+        <div class="flex flex-row w-full justify-between px-5 my-2 items-center">
             <h3>Daftar Pengguna</h3>
             <div class="flex flex-row justify-end items-center">
                 <button 
