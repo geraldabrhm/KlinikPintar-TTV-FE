@@ -3,17 +3,14 @@ import './style.css';
 import App from './App.vue';
 import router from './router';
 
-// import 'vuetify/styles'
-// import { createVuetify } from 'vuetify'
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
+// * Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 
-// const vuetify = createVuetify({
-//     components,
-//     directives,
-// })
+library.add(faHouseMedical, faNotesMedical, faFlask, faMicroscope, faTruckMedical, faCircleExclamation, faThumbsUp);
 
 createApp(App)
     .use(router)
-    // .use(vuetify)
+    .component('font-awesome-icon', FontAwesomeIcon)
     .mount('#app')
