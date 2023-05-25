@@ -31,7 +31,7 @@
 <template>
     <div class="flex flex-row justify-between">
         <p class="table-cell basis-1/12">{{ num }}</p>
-        <p class="table-cell basis-3/12">{{ vital.personId }}</p>
+        <p class="table-cell basis-3/12">{{ vital.name }}</p>
         <!-- <p class="table-cell basis-3/12">{{ nameById }}</p> -->
         <p class="table-cell basis-2/12">{{ dateFormatted }}</p>
         <p class="table-cell basis-2/12">{{ vital.bloodPressureSistol }}/{{ vital.bloodPressureDiastol }}</p>
